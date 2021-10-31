@@ -5,6 +5,12 @@ from PIL import Image
 from PIL import ImageDraw
 import numpy as np
 
+
+width = 2560
+depth = 1440
+colourRange = 'full' # ('dark', 'light', 'full')
+filename = 'output.png'
+
 def render_image(backWidth, backDepth, filename, colours='full'):
     if colours == 'dark':
         startColour = list(np.random.choice(range(192), size=3))
@@ -40,11 +46,5 @@ def get_gradient_3d(width, height, start_list, stop_list, is_horizontal_list):
         result[:, :, i] = get_gradient_2d(start, stop, width, height, is_horizontal)
 
     return result
-
-
-width = 2560
-depth = 1440
-colourRange = 'full' # ('dark', 'light', 'full')
-filename = 'output.png'
 
 render_image(width, depth, filename, 'full')
