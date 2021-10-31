@@ -8,7 +8,7 @@ import numpy as np
 
 width = 2560
 depth = 1440
-colourRange = 'full' # ('dark', 'light', 'full')
+colourRange = 'dark' # ('dark', 'light', 'full')
 filename = 'output.png'
 
 def render_image(backWidth, backDepth, filename, colours='full'):
@@ -23,8 +23,6 @@ def render_image(backWidth, backDepth, filename, colours='full'):
         endColour = list(np.random.choice(range(256), size=3))
 
     hlist = list(np.random.choice([True, False], size=3))
-    print(hlist)
-
     colourArray = get_gradient_3d(backWidth, backDepth, startColour, endColour, hlist)
 
     im = Image.fromarray(np.uint8(colourArray))
